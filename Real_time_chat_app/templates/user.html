@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block title %} User| {% endblock title %}
+
+{% block body %}
+
+<div class="wrapper" style="margin-top: 8rem">
+  <section class="users">
+    <header>
+      <a href="/"><i class="fas fa-arrow-left"></i></a>
+      {% load static %}
+      
+      <div class="content" style="margin-right: 2rem">
+        {% comment %} <img src="{% static 'images/default.jpeg' %}" alt="image" /> {% endcomment %}
+        <img src="{% static 'images/profile.webp' %}" alt="image">
+
+        <div class="details" style="margin-top: 1rem">
+          <span>{{user.first_name}} {{user.last_name}}</span>
+          <p>Active Now</p>
+        </div>
+      </div>
+      
+      <a href="/logout" class="logout">Logout</a>
+    </header>
+
+    <div class="search">
+      <span class="text">Select a user to start a chat </span>
+      <input type="text" placeholder="Enter name to search " />
+      <button><i class="fas fa-search"></i></button>
+    </div>
+
+{% for user in users %}
+    <div class="users-list">
+      <a href="/chat/{{user.username}}" style="text-decoration:none;">
+        <div class="content">
+          <img src="{% static 'images/profile.webp' %}" alt="image" srcset="" />
+          <div class="details">
+            <span>{{user.first_name}} {{user.last_name}}</span>
+            <p>This is text message</p> 
+          </div>
+        </div>
+        <div class="status-dot"><i class="fas fa-circle"></i></div>
+      </a>
+    </div>
+    {% endfor %}
+  </section>
+</div>
+<script>
+  const searchBar = document.querySelector(".search input"),
+    searchIcon = document.querySelector(".search button"),
+    usersList = document.querySelector(".users-list");
+
+  searchIcon.onclick = () => {
+    searchBar.classList.toggle("show");
+    searchIcon.classList.toggle("active");
+    searchBar.focus();
+    if (searchBar.classList.contains("active")) {
+      searchBar.value = "";
+      searchBar.classList.remove("active");
+    }
+  };
+</script>
+{% endblock body %}

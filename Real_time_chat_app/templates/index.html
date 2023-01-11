@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Home |{% endblock title %}
+{% block body %}
+{% load static %}
+<style>
+  body{
+    background-color:whitesmoke;
+  }
+  .howitrow {
+    margin-top: 10px;
+    padding: 10px;
+  }
+  .howitrowtext {
+    font-size: 25px;
+    padding: 24px;
+  }
+
+  .howiticon {
+    font-size: 30px;
+    padding: 15px;
+  }
+  .howitwork,.sectiondata{
+    margin-top:2rem ;
+    border: 2px solid rgb(238, 234, 234);
+    border-radius: 1rem;
+    background-color:white;
+  }
+.aboutussection{
+  margin-left: 1rem;
+  /* text-align: center; */
+  word-spacing: 5px;
+  font-size: 25px;
+  
+}
+
+</style>
+<div class="flex-container" style="display: flex; flex-direction: column;">
+
+<div id="carouselExampleSlidesOnly" class="carousel slide  justify-content-md-center" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      {% comment %} <img class="d-block w-100" src="https://source.unsplash.com/1400x450?chatting" alt="First slide"> {% endcomment %}
+      <img class="d-block w-100" src="{% static 'images/chat_image.png' %}" alt="First slide">
+    </div>
+  </div>
+</div>
+
+<div class="container sectiondata">
+  <h2 class="text-center my-3"> About Chat application </h2><hr>
+   <p class="aboutussection">
+    "Web based chatting application" is a web application. This web application is a way to communicate with new people which helps to exchange ideas, learn new things from others.
+This is a social-networking tool that leverages on technology advancement thereby allowing its users communicate and share ideas. It offers a wonderful one stop shop experience for keeping in touch with people you know. It can be used for messaging.
+It is named as a web based chatting application where a new user has to register an account in order to use the chat system. Some particular that user have to fill in such as the Username, password, first name, last name, and email. The username register for the system must be unique. After register it will direct to the login page. The user has to fill in the username and the password in order to login in the system. If the username or password incorrect, the system will inform the user the incorrect input and request user to type in again from where the user can select a user to start conversation.
+ 
+  </p>
+</div>
+
+ <div class="container howitwork" >
+   <h2 class="text-center my-3">HOW IT WORK</h2><hr>
+  <div class="row howitrow">
+    <div class="col howitrowtext">
+      1.Register your account 
+    </div>   
+    <div class="col">
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-user howiticon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-heart howiticon"></i>
+      </div>
+    </div>   
+    <div class="col howitrowtext">
+      2.Login with username and password
+      
+    </div>
+  </div>
+  <div class="row howitrow">
+    <div class="col howitrowtext">
+      3.Select a user to start chat 
+    </div>   
+    <div class="col">
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-user howiticon"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row howitrow">
+    <div class="col howitrowtext">
+      <div class="col text-center bg-info text-light">
+        <i class="fa fa-heart howiticon"></i>
+      </div>
+    </div>   
+    <div class="col howitrowtext">
+      4.Start messaging     
+    </div>
+  </div>
+ </div> 
+
+</div>
+{% endblock body %}

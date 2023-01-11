@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %} Create Room | {% endblock title %}
+
+
+{% block body %}
+
+
+  <div class="wrapper">
+    <section class="form login">
+      <header>Django Chat Room</header>
+
+       <form action="/create_room" method="POST" > <!--enctype="multipart/form-data" autocomplete="off" -->
+
+        {% csrf_token %}
+
+         <div class="error-text">
+           {% for message in messages %}
+          {{ message }}
+            {% endfor %}
+        </div> 
+        <div class="field input">
+          <label>Username</label>
+          <input type="username" name="username" id="username" placeholder="Enter your username" required>
+        </div>
+        <div class="field input">
+          <label>Room Name</label>
+          <input type="room_name" name="room_name" id="room_name" placeholder="Enter your username" required>
+        </div>
+       
+        
+        <div class="field button">
+          <input type="submit" name="submit" value="Continue to Chat">
+        </div>
+      </form>
+    </section>
+  </div>
+
+<script>
+  
+  const pswrdField = document.querySelector(".form input[type='password']"),
+toggleIcon = document.querySelector(".form .field i");
+
+toggleIcon.onclick = () =>{
+  if(pswrdField.type === "password"){
+    pswrdField.type = "text";
+    toggleIcon.classList.add("active");
+  }
+  else{
+    pswrdField.type = "password";
+    toggleIcon.classList.remove("active");
+  }
+}
+</script>
+{% endblock body %}
+
+
+
